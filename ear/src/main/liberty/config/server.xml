@@ -1,0 +1,36 @@
+<server description="new server">
+    <!-- Enable features -->
+    <featureManager>
+        <feature>webProfile-8.0</feature>
+        <feature>localConnector-1.0</feature>
+        <feature>ejbLite-3.2</feature>
+        <feature>jms-2.0</feature>
+        <feature>mdb-3.2</feature>
+        <feature>wmqJmsClient-2.0</feature>
+    </featureManager>
+
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+    <!-- <httpEndpoint httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/> -->
+
+    <!-- Automatically expand WAR files and EAR files -->
+    <applicationManager autoExpand="true"/>
+
+    <!-- Default SSL configuration enables trust for default certificates from the Java runtime --> 
+    <ssl id="defaultSSLConfig" trustDefaultCerts="true"/>
+    <applicationMonitor updateTrigger="mbean"/>
+
+    <enterpriseApplication id="prototype-app"
+        location="prototype-app.ear"
+        name="prototype-app" />
+    <variable name="wmqJmsClient.rar.location" value="C:/Users/lizheng/Develop/sdk/wmq.jmsra.rar"/>
+
+    <jmsActivationSpec id="HopeMessageReceiver">
+        <authData id="mqJms.auth" user="app" password="passw0rd"/>
+    	<properties.wmqJms destinationRef="jms/FromWmsQueue" hostName="ibm-mq" port="1414" queueManager="HOPE_QM" transportType="CLIENT"/>
+    </jmsActivationSpec>
+    <jmsQueue id="jms/FromWmsQueue" jndiName="jms/FromWmsQueue">
+    	<properties.wmqJms baseQueueName="DEV.QUEUE.FROM_WMS"/>
+    </jmsQueue>
+    <ejbApplication id="prototype-mq" location="prototype-mq-0.0.1-SNAPSHOT.jar"/>
+
+</server>

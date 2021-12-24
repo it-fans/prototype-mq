@@ -1,0 +1,3 @@
+ear/target/**
+jar/target/**
+.vscode*
