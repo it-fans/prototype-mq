@@ -26,7 +26,7 @@
 
     <jmsActivationSpec id="HopeMessageReceiver">
         <authData id="mqJms.auth" user="app" password="passw0rd"/>
-    	<properties.wmqJms destinationRef="jms/FromWmsQueue" hostName="ibm-mq" port="1414" queueManager="HOPE_QM" transportType="CLIENT"/>
+    	<properties.wmqJms destinationRef="jms/FromWmsQueue" hostName="localhost" port="1414" queueManager="HOPE_QM" transportType="CLIENT"/>
     </jmsActivationSpec>
     <jmsQueue id="jms/FromWmsQueue" jndiName="jms/FromWmsQueue">
     	<properties.wmqJms baseQueueName="DEV.QUEUE.FROM_WMS"/>
