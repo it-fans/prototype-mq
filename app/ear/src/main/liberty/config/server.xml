@@ -26,10 +26,10 @@
 
     <jmsActivationSpec id="HopeMessageReceiver">
         <authData id="mqJms.auth" user="app" password="passw0rd"/>
-    	<properties.wmqJms destinationRef="jms/FromWmsQueue" hostName="localhost" port="1414" queueManager="HOPE_QM" transportType="CLIENT"/>
+    	<properties.wmqJms destinationRef="jms/LQ_DEV" hostName="localhost" port="1414" queueManager="HOPE_QM" transportType="CLIENT" maxPoolDepth="1"/>
     </jmsActivationSpec>
-    <jmsQueue id="jms/FromWmsQueue" jndiName="jms/FromWmsQueue">
-    	<properties.wmqJms baseQueueName="DEV.QUEUE.FROM_WMS"/>
+    <jmsQueue id="jms/LQ_DEV" jndiName="jms/LQ_DEV">
+    	<properties.wmqJms baseQueueName="DEV.QUEUE.LQ.DEV"/>
     </jmsQueue>
     <ejbApplication id="prototype-mq" location="prototype-mq-0.0.1-SNAPSHOT.jar"/>
 
