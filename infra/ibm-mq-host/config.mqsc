@@ -1,0 +1,4 @@
+alter qmgr chlauth(DISABLED)
+define qlocal(LD.C2PA.ONL.BSA.202)
+define channel (SD_PHPE1.C2PA.50) chltype (RCVR) trptype (TCP)
+

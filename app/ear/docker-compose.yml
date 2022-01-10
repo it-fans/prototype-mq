@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  ibm-mq-01:
+    build: 
+      context: ./ibm-mq
+      dockerfile: Dockerfile
+    ports:
+      - 9443:9443
+      - 1414:1414
+    environment:
+     LICENSE: accept
+     MQ_QMGR_NAME: HOPE_QM
+     MQ_APP_PASSWORD: passw0rd

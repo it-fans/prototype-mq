@@ -1,0 +1,4 @@
+alter qmgr CHLAUTH(DISABLED)
+define qlocal(C2PA.050) usage (xmitq)
+define qremote(RQ.C2PA.SD_PHPE1.ONL.BSA.200) rname(LD.C2PA.ONL.BSA.202) rqmname(C2PA) xmitq(C2PA.050)
+define channel(SD_PHPE1.C2PA.50) chltype(sdr) conname('ibm-mq-host-container(1414)') xmitq(C2PA.050) trptype(tcp)

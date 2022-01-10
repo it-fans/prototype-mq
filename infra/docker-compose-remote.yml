@@ -1,0 +1,30 @@
+version: '3.3'
+services:
+  ibm-mq-host:
+    build: 
+      context: ./ibm-mq-host
+      dockerfile: Dockerfile
+    container_name: ibm-mq-host-container
+    hostname: ibm-mq-host
+    ports:
+      - 19443:9443
+      - 11414:1414
+    environment:
+     LICENSE: accept
+     MQ_QMGR_NAME: C2PA
+     MQ_APP_PASSWORD: passw0rd
+  ibm-mq-hope:
+    build: 
+      context: ./ibm-mq-hope
+      dockerfile: Dockerfile
+    container_name: ibm-mq-hope-container
+    hostname: ibm-mq-hope
+    ports:
+      - 29443:9443
+      - 21414:1414
+    environment:
+     LICENSE: accept
+     MQ_QMGR_NAME: SD_PHP1
+     MQ_APP_PASSWORD: passw0rd
+    depends_on: 
+      - ibm-mq-host
